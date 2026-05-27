@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Docker (local overrides only; compose files stay tracked)
+*.log

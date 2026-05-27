@@ -1,0 +1,28 @@
+services:
+  web:
+    build: ./app
+    container_name: my-webapp-web
+    restart: unless-stopped
+    environment:
+      - HOSTNAME=web
+    expose:
+      - "5000"
+    networks:
+      - app-net
+
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: my-webapp-nginx
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - web
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    driver: bridge
