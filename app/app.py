@@ -12,7 +12,7 @@ HOSTNAME = os.environ.get("HOSTNAME", "unknown")
 def index():
     return jsonify(
         {
-            "message": "Hello from my-webapp!",
+            "message": "Hello from my-webapp! by wjh",
             "hostname": HOSTNAME,
             "time": datetime.utcnow().isoformat() + "Z",
         }
